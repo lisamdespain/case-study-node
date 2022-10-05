@@ -1,5 +1,6 @@
 const express = require('express');
 const { MessagingResponse } = require('twilio').twiml;
+// const { addToCalendar } = require('calendar');
 
 const app = express();
 app.use(express.json());
@@ -84,7 +85,7 @@ app.post('/sms', async (req, res) => {
         res.type('text/xml').send(twiml.toString());
   }
 });
-
-app.listen(3000, () => {
-  console.log('Express server listening on port 3000');
+const port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Express server listening on http:localhost:${port}`);
 });
