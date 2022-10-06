@@ -14,13 +14,13 @@ const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
 
-const getStartDate = () => {
+  const getStartDate = () => {
     let todaysDate = new Date();
     let dateString =
         todaysDate.getUTCFullYear() + "-" +
         ("0" + (todaysDate.getUTCMonth()+1)).slice(-2) + "-" +
         ("0" + todaysDate.getUTCDate()).slice(-2) + "T" +
-        ("0" + todaysDate.getUTCHours()).slice(-2) + ":" +
+        ("0" + (todaysDate.getUTCHours()+1)).slice(-2) + ":" +
         ("0" + todaysDate.getUTCMinutes()).slice(-2) + ":" +
         ("0" + todaysDate.getUTCSeconds()).slice(-2)+ ".000000Z";
     return dateString;
@@ -44,6 +44,7 @@ const getSchedule = async () =>{
     let options = {
         method: 'GET',
         url: 'https://api.calendly.com/event_type_available_times',
+        
         params: {
             event_type: 'https://api.calendly.com/event_types/535a00c7-7422-4d10-98fe-e3dd50fc1197',
             start_time: startTime,
