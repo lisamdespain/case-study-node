@@ -85,7 +85,7 @@ app.post('/sms', async (req, res) => {
         res.type('text/xml').send(twiml.toString());
   }
 });
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Express server listening on http:localhost:${port}`);
+  console.log(`Express server listening on port ${port}`);
 });
