@@ -20,7 +20,7 @@ const formatDate = (dateString) => {
         todaysDate.getUTCFullYear() + "-" +
         ("0" + (todaysDate.getUTCMonth()+1)).slice(-2) + "-" +
         ("0" + todaysDate.getUTCDate()).slice(-2) + "T" +
-        ("0" + (todaysDate.getUTCHours()+1)).slice(-2) + ":" +
+        ("0" + (todaysDate.getUTCHours()+2)).slice(-2) + ":" +
         ("0" + todaysDate.getUTCMinutes()).slice(-2) + ":" +
         ("0" + todaysDate.getUTCSeconds()).slice(-2)+ ".000000Z";
     return dateString;
@@ -86,7 +86,7 @@ app.post('/sms', async (req, res) => {
         res.type('text/xml').send(twiml.toString());
   }
 });
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}`);
 });
